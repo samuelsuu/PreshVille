@@ -1,0 +1,128 @@
+body {
+  margin: 0;
+  overflow-x: hidden; /* Prevents horizontal scrolling */
+}
+/* Navbar.css */
+html {
+  scroll-behavior: smooth;
+}
+
+
+/* Navbar container styling */
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0.5rem 2rem;
+  background-color: #4a148c;
+  color: #fff;
+  position: fixed;
+  top: 0;
+  width: 100%;
+  box-sizing: border-box;
+  z-index: 1000;
+  transition: background-color 0.3s ease;
+}
+
+.navbar-title {
+  font-size: 1.8rem;
+  font-weight: 700;
+  cursor: pointer;
+  transition: color 0.3s ease;
+}
+
+/* Desktop Navbar Links */
+.navbar-links {
+  list-style: none;
+  display: flex;
+  gap: 2rem;
+}
+
+.navbar-links li {
+  position: relative; /* Ensure hover effect is relative to each link */
+}
+
+.navbar-links li a {
+  color: #fff;
+  text-decoration: none;
+  font-weight: 500;
+  transition: color 0.3s ease;
+  position: relative; /* Position relative to allow ::before and ::after to act per link */
+}
+
+.navbar-links li a::before,
+.navbar-links li a::after {
+  content: "";
+  position: absolute;
+  width: 0;
+  height: 2px;
+  background: #ffeb3b;
+  transition: width 0.3s ease;
+  opacity: 0.8;
+}
+
+.navbar-links li a::before {
+  top: 0;
+  left: 0;
+}
+
+.navbar-links li a::after {
+  bottom: 0;
+  right: 0;
+}
+
+.navbar-links li a:hover {
+  color: #ffeb3b;
+}
+
+.navbar-links li a:hover::before,
+.navbar-links li a:hover::after {
+  width: 100%;
+}
+
+/* Mobile Navbar Links */
+.navbar-toggle {
+  display: none;
+  font-size: 1.8rem;
+  cursor: pointer;
+  color: #fff;
+}
+
+/* Mobile Navbar */
+.navbar-links-mobile {
+  display: none;
+  flex-direction: column;
+  position: absolute;
+  top: 60px;
+  right: 0;
+  background-color: #4a148c;
+  width: 100%;
+  text-align: center;
+  padding: 1rem;
+  animation: slideIn 0.3s ease forwards;
+  z-index: 999;
+}
+
+@media (max-width: 768px) {
+  .navbar-links {
+    display: none;
+  }
+
+  .navbar-toggle {
+    display: block;
+  }
+
+  .navbar-links-mobile {
+    display: flex;
+  }
+}
+
+/* Slide-in animation */
+@keyframes slideIn {
+  from {
+    transform: translateY(-100%);
+  }
+  to {
+    transform: translateY(0);
+  }
+}

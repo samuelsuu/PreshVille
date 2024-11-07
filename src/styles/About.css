@@ -1,0 +1,70 @@
+/* Container styling */
+.about {
+  padding: 4rem 2rem;
+  background-color: #f4f4f9;
+  text-align: center;
+}
+
+.about h2 {
+  font-size: 2.5rem;
+  color: #4a148c;
+  margin-bottom: 1.5rem;
+  font-weight: 700;
+  text-transform: uppercase;
+}
+
+.about-content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 2rem;
+  max-width: 900px;
+  margin: 0 auto;
+  transition: all 0.3s ease-in-out;
+  opacity: 0; /* Initially hidden for animation */
+  transform: translateY(50px); /* Move up as it comes into view */
+  animation: fadeIn 1s forwards; /* Fade-in effect */
+}
+
+.about-image {
+  width: 100%;
+  max-width: 400px;
+  border-radius: 15px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease, opacity 0.3s ease;
+}
+
+.about-text {
+  font-size: 1.1rem;
+  line-height: 1.6;
+  color: #333;
+  text-align: left;
+}
+
+/* Fade-in effect */
+@keyframes fadeIn {
+  0% {
+    opacity: 0;
+    transform: translateY(50px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Hover effect for the image */
+.about-image:hover {
+  transform: scale(1.05);
+}
+
+/* Responsive styling */
+@media (min-width: 768px) {
+  .about-content {
+    flex-direction: row;
+  }
+
+  .about-text {
+    margin-left: 2rem;
+  }
+}
